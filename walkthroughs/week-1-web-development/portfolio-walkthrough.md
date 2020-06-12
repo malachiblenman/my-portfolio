@@ -7,7 +7,7 @@ Engine to deploy that webpage to a public URL.
 
 You can return to this walkthrough anytime by running this command:
 
-```bash
+```bteachme ~/software-product-sprint/walkthroughs/week-0-setup/github-setup-walkthrough.md
 teachme ~/software-product-sprint/walkthroughs/week-1-web-development/portfolio-walkthrough.md
 ```
 

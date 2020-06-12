@@ -71,7 +71,6 @@ To link this local copy to your GitHub project, execute this command:
 ```bash
 git remote add origin YOUR_URL_HERE
 ```
-
 Then to store this directory in your repo, run this command:
 
 ```bash

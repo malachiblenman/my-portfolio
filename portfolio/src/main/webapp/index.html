@@ -1,18 +1,152 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-    </div>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>hey, it's malachi 🚀</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://use.fontawesome.com/3e86b2749f.js"></script>
+        <link rel="shortcut icon" href="images/moon.png"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header>
+            <nav class="top-nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="index.html" class="nav-link">home</a>
+                    </li>
+                    <li>
+                        <a href="#biography" class="nav-link">biography</a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="nav-link">projects</a>
+                    </li>
+                     <li>
+                        <a href="https://drive.google.com/file/d/1KUyDlDXmT-jwwOFXAHw0-48sdiVLewFJ/view" class="nav-link">resume</a>
+                    </li>
+                     <li>
+                        <a href="http://linkedin.com/in/malachiblenman" class="nav-link">linkedin</a>
+                    </li>
+                     <li>
+                        <a href="http://github.com/malachiblenman" class="nav-link">github</a>
+                    </li>
+                     <li>
+                        <a href="https://www.instagram.com/mallyblenman/" class="nav-link">instagram</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class= "about-me-pic"> 
+                <img id="selfie" src="images/mally2.JPG">
+                 <img id="moon" src="images/moon.png">
+                </div>
+            <div class="landing-text">
+              <h1>malachi blenman
+                  <br>computer engineering major @ binghamton university
+                  <br>aspiring aerospace engineer, graphic designer and social media influencer</h1>
+            </div>
+        </header>
+
+<!-- BIOGRAPHY -->
+        <section class="biography" id="biography">
+            <div class="container">
+                <div class="section-heading">
+                  <img id = "biographypic" src = "images/bio">
+                </div>
+
+                <div class="portfolio-item">                    
+                    <div class="portfolio-description">
+                        <img src="images/aboutme.png">
+                        <p>
+                           my name is malachi and i am a rising junior at binghamton university! i was born and raised
+                           in new york city (brooklyn, to be exact) and it's honestly my favorite place in the world!
+                           i actually have a bunch of goals that i hope to accomplish in the future, many from varying fields,
+                           so i hope that amidst my engineering career, i am able to pursue careers on the side! for instance,
+                           i would love to be a social media influencer, graphic designer or even a film director! another fact about me? i love music! 
+                           my favorite band is the 1975, and my favorite artist right now is harry styles. i've actually 
+                           been a big fan of both since i was thirteen and was supposed to see them
+                           this year until the pandemic started :(
+                        </p>
+                    </div>
+                    <div class="portfolio-img">
+                        <img id="biomal" src="/images/mally3.jpg">
+                    </div>
+                </div>
+
+                <div class="portfolio-item">                    
+                    <div class="portfolio-description">
+                        <img src="images/hobbies.png">
+                        <p>
+                        my hobbies include thrifting (i'm very into sustainability), traveling, going to the beach, shopping,
+                        listening to music and filming youtube videos! i actually have a youtube channel that could be
+                        found <strong><a href="https://www.youtube.com/channel/UCp8Eay8DqjQq3J0p0J3jwOw">here.</a></strong>
+                        though it's very new, i definitely want to film videos about fashion, lifestyle and productivity! i'm also extremely
+                        into art, marketing and film as i said before, and i have been using video and photo editing softwares since i was younger.
+                        i love all of my hobbies and i hope that one day i'll be able to use them in order to make the world a better place!!
+                        </p>
+                    </div>
+                    <div class="portfolio-img">
+                        <img src="images/camera.JPG">
+                    </div>
+                </div>
+        </section>
+<!-- PROJECTS -->
+        <section class="projects" id="projects">
+            <div class="container">
+                <div class="section-heading">
+                    <img id="projectspic" src="images/projects.png">
+                </div>
+
+                <div class="portfolio-item">                    
+                    <div class="portfolio-description">
+                        <img src="images/modelrocket.png">
+                        <ul>
+                            <li>cooperate with b-above: aviation student association and bingspace members (15+) in creating a rocket for the seds competition, combining
+our knowledge on cad software, stress analysis, thermodynamics and applied astrophysics </li>
+<li>research student-led rocket teams and academic papers from pilots and aerospace engineers in order to ignite the build and documentation process</li>
+<li> helped perform ground/electro-magnetic inference tests, fit checks and remote site test preparations</li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-img">
+                        <img src="images/rocket.png">
+                    </div>
+                </div>
+
+                <div class="portfolio-item">                    
+                    <div class="portfolio-description">
+                        <img src="images/eecm.png">
+                        <ul>
+                           <li> utilize solid edge st10 to cad the beta version of the cortado coffee maker project, integrating requirements researched from companies including
+the u.s environmental protection agency and american national standards institute (ansi)</li>
+<li>collaborated with six students on tasks verifying energy, structural and performance requirements through mathematical calculations in matlab,
+rockwell arena and as well as research on semi-conductors, thevenin circuitry and heat</li>
+<li>presented final design to binghamton University faculty and students, winning the first-place prize for best conceptual design against 80+ students</li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-img">
+                        <img src="images/cortado.png">
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-description">
+                        <img src="images/8bit.png">
+                        <ul>
+                            <li>designed a verilog-based rtl circuit in xilinx vivado which could add, subtract, and multiply any two 16-bit binary numbers where the hexadecimal
+results would appear on a seven-segment display of a basys 3 artix-7 fpga development board</li>
+<li> constructed a 12-page detailed documentation for each piece of the design (truth tables, finite state machines, registers, logic operators, etc.) which
+included the rationale for each component, the basic premise by which component operates, and a description on how to use the component</li>
+                        </ul>
+                    </div>                    
+                    <div class="portfolio-img">
+                        <img src="images/fpga.png">
+                    </div>                    
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
