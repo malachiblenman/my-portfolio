@@ -11,11 +11,11 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+/* All of this is unused, by the way.*/
 /**
  * Adds a random fact to the page.
  */
-function addRandomGreeting() {
+function addRandomFact() {
   const greetings =
       ['I am president of my space club!', 'Two projects I am working on right now include a Mars Rover & Rocket', 'I plan on building an observatory for my school', 'I have interned at NASA before!'];
 
