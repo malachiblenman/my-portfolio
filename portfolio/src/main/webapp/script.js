@@ -25,4 +25,11 @@ function addRandomFact() {
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
+
 }
+
+function FetchDispGreeting (){
+    fetch("/data").then(response => response.text()).then((greeting) => {
+        document.getElementById("greeting").innerHTML = greeting;
+    })
+    }
