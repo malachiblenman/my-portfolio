@@ -103,6 +103,12 @@ li{
     width:50px;
 }
 
+#greeting {
+    color:#ffffff;
+    font-family: 'KeeponTruckin',sans-serif;
+    font-size: 7px;
+}
+
 .landing-text{
     position: absolute;
     top: 50%;
