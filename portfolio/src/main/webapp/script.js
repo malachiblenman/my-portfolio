@@ -29,7 +29,12 @@ function addRandomFact() {
 }
 
 function FetchDispGreeting (){
-    fetch("/data").then(response => response.text()).then((greeting) => {
-        document.getElementById("greeting").innerHTML = greeting;
+      fetch("/data").then(response => response.json()).then((messages) => {
+            var Affirmations = document.getElementById("messages");
+            messages.forEach((message) => {
+                var para = document.createElement("p");
+                para.innerText = message;
+                Affirmations.appendChild(para);
+            });
     })
-    }
+} 
