@@ -30,11 +30,11 @@ function addRandomFact() {
 
 function FetchDispGreeting (){
       fetch("/data").then(response => response.json()).then((messages) => {
-            var Affirmations = document.getElementById("messages");
+            var affirmations = document.getElementById("messages");
             messages.forEach((message) => {
                 var para = document.createElement("p");
                 para.innerText = message;
-                Affirmations.appendChild(para);
+                affirmations.appendChild(para);
             });
     })
 } 
