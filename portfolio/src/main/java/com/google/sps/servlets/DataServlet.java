@@ -28,20 +28,53 @@ import com.google.gson.Gson;
 public class DataServlet extends HttpServlet {
 
 private ArrayList<String> messages = new ArrayList<String>();
-
+ @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String firstname = getParameter(request, "fname", "");
+    String lastname= getParameter(request, "lname", "");
+    String comment = getParameter(request, "comment", "");
+  }
 
   @Override
   public void init() throws ServletException { //Affirmations
-    messages.add("Today is a wonderful day.");
-    messages.add("I Am Strong and Capable.");
-    messages.add("I continue to learn, grow, and evolve with each passing day.");
+    messages.add("fname");
+    messages.add("lname");
+    messages.add("comment");
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
       Gson gson = new Gson();
-    String json = gson.toJson(messages);
+    //String json = gson.toJson(messages);
+      String json = convertToJson(messages);
     response.setContentType("text/html;");
     response.getWriter().println(json);
+  }
+  /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+
+     private String convertToJson(ArrayList<String> messages) {
+    String json = "{";
+    json += "\"firstname\": ";
+    json += "\"" + messages.get(0) + "\"";
+    json += ", ";
+    json += "\"lastname\": ";
+    json += "\"" + messages.get(1) + "\"";
+    json += ", ";
+    json += "\"location\": ";
+    json += "\"" + messages.get(2) + "\"";
+    json += "}";
+     return json;
+     }
+
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }
