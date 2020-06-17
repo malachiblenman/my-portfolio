@@ -15,8 +15,6 @@
     <body onload="FetchDispGreeting()">
         <!-- HEADER -->
         <header>
-            <div id="messages">
-	</div>
             <nav class="top-nav">
                 <ul class="nav-list">
                     <li>
@@ -51,7 +49,6 @@
                   <br>computer engineering major @ binghamton university
                   <br>aspiring aerospace engineer, graphic designer and social media influencer</h1>
             </div>
-            
         </header>
 
 <!-- BIOGRAPHY -->
@@ -60,7 +57,6 @@
                 <div class="section-heading">
                   <img id = "biographypic" src = "images/bio">
                 </div>
-
                 <div class="portfolio-item">                    
                     <div class="portfolio-description">
                         <img src="images/aboutme.png">
@@ -79,7 +75,6 @@
                         <img id="biomal" src="/images/mally3.jpg">
                     </div>
                 </div>
-
                 <div class="portfolio-item">                    
                     <div class="portfolio-description">
                         <img src="images/hobbies.png">
@@ -103,7 +98,6 @@
                 <div class="section-heading">
                     <img id="projectspic" src="images/projects.png">
                 </div>
-
                 <div class="portfolio-item">                    
                     <div class="portfolio-description">
                         <img src="images/modelrocket.png">
@@ -118,7 +112,6 @@ our knowledge on cad software, stress analysis, thermodynamics and applied astro
                         <img src="images/rocket.png">
                     </div>
                 </div>
-
                 <div class="portfolio-item">                    
                     <div class="portfolio-description">
                         <img src="images/eecm.png">
@@ -134,7 +127,6 @@ rockwell arena and as well as research on semi-conductors, thevenin circuitry an
                         <img src="images/cortado.png">
                     </div>
                 </div>
-
                 <div class="portfolio-item">
                     <div class="portfolio-description">
                         <img src="images/8bit.png">
@@ -148,6 +140,28 @@ included the rationale for each component, the basic premise by which component 
                     <div class="portfolio-img">
                         <img src="images/fpga.png">
                     </div>                    
+                </div>
+            </div>
+        </section>
+<!-- COMMENTS --> 
+        <section class="commentingform" id="comments">
+            <div class="container">
+                <div class="section-heading">
+                    <div id="commentHeader">
+                        <div id="data-container"></div>
+                    leave a comment!
+                    <div id = commentform>
+                        <form action="/data" method="POST">
+                            <p>first name </p>
+                            <textarea name="fname"></textarea>
+                            <p>last name </p>
+                            <textarea name="lname"></textarea>
+                            <p>enter your comment</p>
+                            <textarea name="comment"></textarea>
+                            <br/><br/>
+                            <input type="submit"/>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
