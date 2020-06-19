@@ -29,7 +29,14 @@ function addRandomFact() {
 }
 
 function FetchDispGreeting (){
-    fetch("/data").then(response => response.text()).then((greeting) => {
-        document.getElementById("greeting").innerHTML = greeting;
+      fetch("/data").then(response => response.json()).then((messages) => {
+            const statsListElement = document.getElementById('data-container');
+    statsListElement.innerHTML = '';
+    statsListElement.appendChild(
+        createListElement('First Name: ' + messages.firstname));
+    statsListElement.appendChild(
+        createListElement('Last Name: ' + messages.lastname));
+    statsListElement.appendChild(
+        createListElement('Comment: ' + messages.comment));
     })
-    }
+} 
