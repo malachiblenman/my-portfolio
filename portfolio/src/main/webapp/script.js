@@ -30,7 +30,7 @@ function addRandomFact() {
 
 function FetchDispGreeting (){
       fetch("/data").then(response => response.json()).then((messages) => {
-            const statsListElement = document.getElementById('dataa');
+            const statsListElement = document.getElementById('CommentContainer');
             var i = 0;
             console.log(messages[i])
              statsListElement.innerHTML = '';
