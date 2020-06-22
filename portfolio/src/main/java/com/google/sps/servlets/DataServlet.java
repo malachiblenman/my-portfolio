@@ -13,7 +13,12 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
-
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,50 +31,54 @@ import com.google.gson.Gson;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-
-private ArrayList<String> messages = new ArrayList<String>();
+private ArrayList<String> first;
+private ArrayList<String> last;
+private ArrayList<String> comm;
+ @Override
+  public void init() throws ServletException { 
+    first = new ArrayList<String>();
+    last = new ArrayList<String>();
+    comm = new ArrayList<String>();
+  }
+ 
  @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the input from the form.
     String firstname = getParameter(request, "fname", "");
     String lastname= getParameter(request, "lname", "");
     String comment = getParameter(request, "comment", "");
-  }
-
-  @Override
-  public void init() throws ServletException { //Affirmations
-    messages.add("fname");
-    messages.add("lname");
-    messages.add("comment");
+    long timestamp = System.currentTimeMillis();
+    Entity taskEntity = new Entity("Task");
+    taskEntity.setProperty("First Name", firstname);
+    taskEntity.setProperty("Last Name", lastname);
+    taskEntity.setProperty("Comment", comment);
+    taskEntity.setProperty("Timestamp", timestamp);
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(taskEntity);
+    response.sendRedirect("/index.html");
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-      Gson gson = new Gson();
-    //String json = gson.toJson(messages);
-      String json = convertToJson(messages);
-    response.setContentType("text/html;");
+    Query query = new Query("Task").addSort("Timestamp", SortDirection.DESCENDING);
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+    comm = new ArrayList<String>();
+
+    for (Entity entity : results.asIterable()) {
+        String comment = (String) entity.getProperty("Comment");
+        comm.add(comment);
+    }
+
+    String json = new Gson().toJson(comm);
+    response.setContentType("application/json");
     response.getWriter().println(json);
   }
   /**
    * @return the request parameter, or the default value if the parameter
    *         was not specified by the client
    */
-
-     private String convertToJson(ArrayList<String> messages) {
-    String json = "{";
-    json += "\"firstname\": ";
-    json += "\"" + messages.get(0) + "\"";
-    json += ", ";
-    json += "\"lastname\": ";
-    json += "\"" + messages.get(1) + "\"";
-    json += ", ";
-    json += "\"location\": ";
-    json += "\"" + messages.get(2) + "\"";
-    json += "}";
-     return json;
-     }
-
+   
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
     String value = request.getParameter(name);
     if (value == null) {

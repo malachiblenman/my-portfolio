@@ -30,13 +30,20 @@ function addRandomFact() {
 
 function FetchDispGreeting (){
       fetch("/data").then(response => response.json()).then((messages) => {
-            const statsListElement = document.getElementById('data-container');
-    statsListElement.innerHTML = '';
-    statsListElement.appendChild(
-        createListElement('First Name: ' + messages.firstname));
-    statsListElement.appendChild(
-        createListElement('Last Name: ' + messages.lastname));
-    statsListElement.appendChild(
-        createListElement('Comment: ' + messages.comment));
-    })
-} 
+            const statsListElement = document.getElementById('CommentContainer');
+            var i = 0;
+            console.log(messages[i])
+             statsListElement.innerHTML = '';
+            while (messages[i] != null){
+                 statsListElement.appendChild(
+                 createListElement('Comment: ' + messages[i]));
+            i++;
+         }
+     });
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}    
