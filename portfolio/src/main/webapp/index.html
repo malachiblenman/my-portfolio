@@ -9,6 +9,7 @@
         <script src="https://use.fontawesome.com/3e86b2749f.js"></script>
         <link rel="shortcut icon" href="images/moon.png"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="script.js"></script>
     </head>
     <body>
@@ -142,13 +143,37 @@ included the rationale for each component, the basic premise by which component 
                 </div>
             </div>
         </section>
+<!-- ZODIAC --> 
+        <section class="zodiac" id="zodiac">
+        <h1>choose your astrological sign!</h1>
+        <form action="/zodiacsign" method="POST">
+        <select name="astrosign">
+            <option value="Aries">Aries</option>
+            <option value="Taurus">Taurus</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Cancer">Cancer</option>
+            <option value="Leo">Leo</option>
+            <option value="Virgo">Virgo</option>
+            <option value="Libra">Libra</option>
+            <option value="Scorpio">Scorpio</option>
+            <option value="Sagittarius">Sagittarius</option>
+            <option value="Capricorn">Capricorn</option>
+            <option value="Aquarius">Aquarius</option>
+            <option value="Pisces">Pisces</option>
+        </select>
+        <button onclick = "drawChart()">Submit</button>
+        <div id="chart-container">
+        </div>
+        </form>
+        </div>
+        </section>
 <!-- COMMENTS --> 
         <section class="commentingform" id="comments">
             <div class="container">
             <div class="section-heading">
             <div id="commentHeader">
                     leave a comment!
-                    <div id = commentform>
+                    <div id = "commentform">
                         <form action="/data" method="POST">
                             <p>first name </p>
                             <textarea name="fname"></textarea>
