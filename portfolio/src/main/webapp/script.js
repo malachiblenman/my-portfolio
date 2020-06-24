@@ -15,7 +15,7 @@
 /**
  * Adds a random fact to the page.
  */
-function addRandomFact() {
+/* function addRandomFact() {
   const greetings =
       ['I am president of my space club!', 'Two projects I am working on right now include a Mars Rover & Rocket', 'I plan on building an observatory for my school', 'I have interned at NASA before!'];
 
@@ -26,7 +26,10 @@ function addRandomFact() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 
-}
+}*/
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
 
 function FetchDispGreeting (){
       fetch("/data").then(response => response.json()).then((messages) => {
@@ -47,3 +50,25 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }    
+
+function drawChart() {
+  fetch('/zodiacsigns').then(response => response.json())
+  .then((zodiacSign) => {
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Astro Sign');
+    data.addColumn('number', 'Votes');
+    Object.keys(zodiacSign).forEach((astrosign) => {
+      data.addRow([astrosign, zodiacSign[astrosign]]);
+    });
+
+    const options = {
+      'title': 'Zodiac',
+      'width':600,
+      'height':500
+    };
+
+    const chart = new google.visualization.ColumnChart(
+        document.getElementById('chart-container'));
+    chart.draw(data, options);
+  });
+}
